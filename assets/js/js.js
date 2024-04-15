@@ -5,11 +5,12 @@ let dailyCont = document.getElementById("forecastCards");
 // Get the buttons container
 let cityButtons = document.querySelectorAll('.cityBtns');
 let cityChoice = document.getElementById("cityInput").value;
-console.log(cityButtons)
+
 // Loop through each button
 for (const element of cityButtons) {
     // Add event listener to the current button
     element.addEventListener('click', function(event) {
+        
         // Get the city name from the data attribute
         var cityName = this.getAttribute('data-city');
         
@@ -23,6 +24,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
     event.preventDefault();
     var cityName = document.getElementById("cityInput").value;
     if (!cityName) {
+        event.preventDefault();
         alert("Please enter the name of a city.");
     }
     else {
@@ -42,8 +44,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
             console.log(data);
             console.log(data[1])
             console.log("26")
-             // Update UV index
-            //updateUVIndex(data.current.uvi)
+            
 
         })
 
@@ -64,7 +65,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
             var lat = data[0].lat;
 
 
-            var forcastUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&units=imperial&exclude=hourly,daily" + "&appid=" + API_KEY;
+            var forcastUrl = "https://api.openweathermap.org/data/3.0/onecall?lat=" + lat + "&lon=" + long + "&units=imperial" + "&appid=" + API_KEY;
 
             fetch(forcastUrl).then(function (response) {
                 if (!response.ok) {
@@ -72,9 +73,13 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 }
                 return response.json();
             }).then(function(data) {
-                print(data[0])
-
-                var unix_timeStamp = new Date(data.current.dt * 1000);
+                updateUVIndex(data.current.uvi)
+                console.log(data)
+                // Takes the first node of json data
+                
+                var unix_timeStamp = new Date(data.daily[0].dt * 1000);
+                console.log(unix_timeStamp)
+                console.log(data)
                 var day = unix_timeStamp.getDay();
                 var month = unix_timeStamp.getMonth();
                 var year = unix_timeStamp.getFullYear();
@@ -90,17 +95,18 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 document.getElementById("humidity").innerText = data.current.humidity + "%";
                 document.getElementById("windSpeed").innerText = data.current.wind_speed + " MPH";
                 document.getElementById("uvIndex").innerText = data.current.uvi;
-                // 
-                console.log(data);
-                //console.log(data.daily);
+                
+                console.log(data[0]);
                 //use moment capital X to convert dt unix value
-
+                
                 for (var i = 0; i < 5; i++) {
                     //var weatherCard = data.daily[i];
                     var card = $("<div>");
                     card.addClass("weatherCard");
 
                     var daily_timeStamp = new Date(data.daily[i].dt * 1000);
+                    console.log(daily_timeStamp)
+                    console.log(data.list)
                     var day = daily_timeStamp.getDay();
                     var month = daily_timeStamp.getMonth();
                     var year = daily_timeStamp.getFullYear();
@@ -117,14 +123,14 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
 
                     imgTag.attr("alt", "Weather icon");
 
-                    var iconUrl = "http://openweathermap.org/img/w/" + data.daily[i].weather[0].icon + ".png";
+                    var iconUrl = "http://openweathermap.org/img/w/" + data.current[i].weather[0].icon + ".png";
                     imgTag.attr("src", iconUrl);
 
 
                     var temp = $("<h6>");
-                    temp.text("Temp: " + data.daily[i].temp.day + " °F");
+                    temp.text("Temp: " + data.list[i].temp.day + " °F");
                     var humidity = $("<h6>");
-                    humidity.text("Humidity: " + data.daily[i].humidity + "%");
+                    humidity.text("Humidity: " + data.list[i].humidity + "%");
                     card.append(cardTitle);
                     card.append(icon);
                     card.append(temp);
@@ -145,7 +151,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
         uvIndexElement.textContent = value;
 
             // Check if value is not empty, then apply background color
-            if (value.trim() !== '') {
+            if (value.toString().trim() !== '') {
                 uvIndexElement.style.backgroundColor = 'rgb(255, 35, 35)';
             } else {
                 uvIndexElement.style.backgroundColor = ''; // Reset to default background color
@@ -153,5 +159,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
         }
 
     }
+     // Update UV index
+     updateUVIndex(data.current.uvi)
 
 })
