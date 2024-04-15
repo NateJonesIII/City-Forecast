@@ -13,7 +13,7 @@
 
 ## Preview
 
-- <img width="500" alt="Tag" src="https://github.com/NateJonesIII/City-Forecast/blob/main/assets/img/miami.PNG">
+<img width="500" alt="Tag" src="https://github.com/NateJonesIII/City-Forecast/blob/main/assets/img/miami.PNG">
 
 ## Link
 
@@ -52,7 +52,7 @@ Testing for this project would involve:
 3. Checking for any errors or alerts displayed during user interactions, such as searching for a city or clicking on city buttons.
 4. Testing the functionality of the scrollbar under the weather cards to ensure it works correctly when there is overflow content.
 
-- <img width="500" alt="Tag" src="https://github.com/NateJonesIII/City-Forecast/blob/main/assets/img/postman_testing.PNG">
+<img width="500" alt="Tag" src="https://github.com/NateJonesIII/City-Forecast/blob/main/assets/img/postman_testing.PNG">
 
 ## Requirements
 
