@@ -82,10 +82,10 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 //var icon = $(".icon").html("<img src='http://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
 
                 document.getElementById("cityName").innerText = cityName + " " + currentDay + " ";
-                document.getElementById("temperature").innerText = data.current.temp + "°F";
-                document.getElementById("humidity").innerText = data.current.humidity + "%";
-                document.getElementById("windSpeed").innerText = data.current.wind_speed + " MPH";
-                document.getElementById("uvIndex").innerText = data.current.uvi;
+                document.getElementById("temperature").innerText ="Temperature: " +data.current.temp + "°F";
+                document.getElementById("humidity").innerText ="Humidity: "+ data.current.humidity + "%";
+                document.getElementById("windSpeed").innerText ="Wind Speed: " + data.current.wind_speed + " MPH";
+                document.getElementById("uvIndex").innerText ="UV Index: " + data.current.uvi;
                 
                 console.log(data[0]);
                 
