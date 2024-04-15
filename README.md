@@ -2,14 +2,14 @@
 
 ## Table of Contents
 
-[preview](#preview)
-[Link](#link)
-[Project Description](#project-description)
-[Technologies Used](#technologies-used)
-[Methodologies](#methodologies)
-[Testing](#testing)
-[Requirements](#requirements)
-[Creator](#creator)
+- [preview](#preview)
+- [Link](#link)
+- [Project Description](#project-description)
+- [Technologies Used](#technologies-used)
+- [Methodologies](#methodologies)
+- [Testing](#testing)
+- [Requirements](#requirements)
+- [Creator](#creator)
 
 ## Preview
 
@@ -17,7 +17,7 @@
 
 ## Link
 
-https://natejonesiii.github.io/City-Forecast/
+[ClickHere!](https://natejonesiii.github.io/City-Forecast/)
 
 ## Project Description
 
@@ -72,4 +72,4 @@ THEN I am again presented with current and future conditions for that city
 
 ## Creator
 
-[Profile](https://github.com/NateJonesIII/ "Nathaniel Jones")[LinkedIn](https://www.linkedin.com/in/nathaniel-jones/)[Email](mailto:15nate.jones@gmail.com?subject=Hello "Hello Nate!")
+- [Profile](https://github.com/NateJonesIII/ "Nathaniel Jones") - [LinkedIn](https://www.linkedin.com/in/nathaniel-jones/) - [Email](mailto:15nate.jones@gmail.com?subject=Hello "Hello Nate!")
