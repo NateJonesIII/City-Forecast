@@ -97,7 +97,7 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                     var daily_timeStamp = new Date(data.daily[i].dt * 1000);
 
                     console.log(data.list)
-                    var day = daily_timeStamp.getDate();
+                    var day = daily_timeStamp.getDate()+1;
                     var month = daily_timeStamp.getMonth()+1;
                     var year = daily_timeStamp.getFullYear();
                     var dailyDay = month + "/" + day + "/" + year;
@@ -111,10 +111,10 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                     imgTag.attr("id", "wicon" + i);
 
                     imgTag.attr("alt", "Weather icon");
+                    var iconPullData = data.daily[0].weather[0].icon;
+                    var iconUrl = "https://openweathermap.org/img/w/" + iconPullData + ".png";
+                    console.log("Weather data:", iconPullData);
 
-                    let iconUrl = "https://openweathermap.org/img/w/" + data.daily[i].weather[i].icon + ".png";
-                    console.log("Weather data:", data.daily[i].weather);
-                    
                     console.log(iconUrl);
                     imgTag.attr("src", iconUrl);
 

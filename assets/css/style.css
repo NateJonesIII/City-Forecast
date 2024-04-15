@@ -30,11 +30,13 @@ aside{
     border-radius: 5px;
     padding: 15px;
     margin-bottom: 25px;
+
 }
 
 #mainContent {
     background-color: rgb(255, 255, 255);
     border: solid 1px black;
+    
 }
 
 .cityBtns {
@@ -59,7 +61,12 @@ aside{
 #forecastCards {
     display: flex;
     flex-direction: row;
-    
+    justify-content: flex-start;
+}
+
+#forecastInfo {
+
+    height: auto;
 }
 
 .weatherCard{
@@ -68,7 +75,7 @@ aside{
     color: white;
     padding: 5px;
     margin: 20px;
-    width:15px;
+    width:auto;
     border-radius: 5px;
     background-color: #2679ff;
 }
@@ -122,3 +129,33 @@ form#cityForm::after {
   }
 
   */
+
+  /* Title */
+.cardTitle {
+    font-size: 1.2em; /* Relative font size */
+    font-weight: bold;
+}
+
+.scroll-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reduce base font size for smaller screens */
+    }
+
+    /* Adjust card width and font size for smaller screens */
+    .weatherCard {
+        width: 20%;
+    }
+    .cardTitle {
+        font-size: 1em;
+    }
+    .weatherContent {
+        font-size: 0.9em;
+    }
+    
+
+}
