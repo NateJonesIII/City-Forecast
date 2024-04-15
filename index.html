@@ -30,7 +30,7 @@
     <div class="container-fluid">
       <div class="row">
         <aside class="col-4 align-items-start" id="zipContent">
-          <h3>Search for a city:</h3>
+          <h3 class="search-font">Search for a city:</h3>
           <form id="cityForm">
             <input
               type="text"
@@ -43,32 +43,64 @@
           </form>
 
           <div class="cityCol">
-            <button class="cityBtns cityBtnTop" id="miamiBtn" data-city="Miami">
+            <button
+              class="btn btn-primary cityBtns cityBtnTop"
+              id="miamiBtn"
+              data-city="Miami"
+            >
               Miami
             </button>
-            <button class="cityBtns" id="austinBtn" data-city="Austin">
+            <button
+              class="btn btn-primary cityBtns"
+              id="austinBtn"
+              data-city="Austin"
+            >
               Austin
             </button>
-            <button class="cityBtns" id="californiaBtn" data-city="California">
+            <button
+              class="btn btn-primary cityBtns"
+              id="californiaBtn"
+              data-city="California"
+            >
               California
             </button>
-            <button class="cityBtns" id="orlandoBtn" data-city="Orlando">
+            <button
+              class="btn btn-primary cityBtns"
+              id="orlandoBtn"
+              data-city="Orlando"
+            >
               Orlando
             </button>
-            <button class="cityBtns" id="atlantaBtn" data-city="Atlanta">
+            <button
+              class="btn btn-primary cityBtns"
+              id="atlantaBtn"
+              data-city="Atlanta"
+            >
               Atlanta
             </button>
-            <button class="cityBtns" id="newyorkBtn" data-city="New York">
+            <button
+              class="btn btn-primary cityBtns"
+              id="newyorkBtn"
+              data-city="New York"
+            >
               New York
             </button>
-            <button class="cityBtns" id="seattleBtn" data-city="Seattle">
+            <button
+              class="btn btn-primary cityBtns"
+              id="seattleBtn"
+              data-city="Seattle"
+            >
               Seattle
             </button>
-            <button class="cityBtns" id="denverBtn" data-city="Denver">
+            <button
+              class="btn btn-primary cityBtns"
+              id="denverBtn"
+              data-city="Denver"
+            >
               Denver
             </button>
             <button
-              class="cityBtns cityBtnBtm"
+              class="btn btn-primary cityBtns cityBtnBtm"
               id="chicagoBtn"
               data-city="Chicago"
             >
@@ -88,7 +120,7 @@
             <h5><span id="uvIndex"></span></h5>
           </div>
           <div id="forecastInfo">
-            <h2>Extended-Day Forecast:</h2>
+            <h2 class="forecast-title">Extended-Day Forecast:</h2>
             <div id="forecastCards" class="scroll-container"></div>
           </div>
         </div>
