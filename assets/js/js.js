@@ -28,8 +28,6 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
         alert("Please enter the name of a city.");
     }
     else {
-        //document.getElementById("cityName").innerText = cityName;
-
         var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial" + "&appid=" + API_KEY;
 
         fetch(requestUrl).then(function (response) {
@@ -39,13 +37,8 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
             return response.json();
 
         }).then(function (data) {
-            console.log("23")
             // Test data retrieval
-            console.log(data);
-            console.log(data[1])
-            console.log("26")
-            
-
+            //console.log(data);    
         })
 
         var geoStatsUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=1&appid=" + API_KEY;
@@ -58,9 +51,8 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
             return response.json();
         }).then(function (data) {
             console.log(data[0]);
-            console.log("long: " + data[0].lon);
-            console.log("lat: " + data[0].lat);
-            console.log("name: " + data[0].name);
+            //console.log("long: " + data[0].lon);
+            //console.log("lat: " + data[0].lat);
             var long = data[0].lon;
             var lat = data[0].lat;
 
@@ -77,14 +69,13 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 console.log(data)
                 // Takes the first node of json data
                 
-                var unix_timeStamp = new Date(data.daily[0].dt * 1000);
+                var unix_timeStamp = new Date(data.current.dt * 1000);
                 console.log(unix_timeStamp)
-                console.log(data)
-                var day = unix_timeStamp.getDay();
-                var month = unix_timeStamp.getMonth();
+                var day = unix_timeStamp.getDate();
+                var month = unix_timeStamp.getMonth()+1;
                 var year = unix_timeStamp.getFullYear();
                 var currentDay = month + "/" + day + "/" + year;
-                var iconUrlCurrent = "http://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png";
+                var iconUrlCurrent = "https://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png";
                 var cityImg = $("#cityNameImg");
                 cityImg.attr("src", iconUrlCurrent);
                 cityImg.attr("alt", "Weather Icon");
@@ -97,49 +88,48 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 document.getElementById("uvIndex").innerText = data.current.uvi;
                 
                 console.log(data[0]);
-                //use moment capital X to convert dt unix value
                 
-                for (var i = 0; i < 5; i++) {
+                for (var i = 0; i <= 5; i++) {
                     //var weatherCard = data.daily[i];
                     var card = $("<div>");
                     card.addClass("weatherCard");
 
                     var daily_timeStamp = new Date(data.daily[i].dt * 1000);
-                    console.log(daily_timeStamp)
+
                     console.log(data.list)
-                    var day = daily_timeStamp.getDay();
-                    var month = daily_timeStamp.getMonth();
+                    var day = daily_timeStamp.getDate();
+                    var month = daily_timeStamp.getMonth()+1;
                     var year = daily_timeStamp.getFullYear();
                     var dailyDay = month + "/" + day + "/" + year;
 
                     var cardTitle = $("<h5>");
-                    cardTitle.addClass("cardTitle");
-                    cardTitle.text(dailyDay);
-                    var icon = $("<div>");
-                    var imgTag = $("<img>")
+                    cardTitle.addClass("cardTitle").text(dailyDay);
+                    var iconFC = $("<div>");
+                    var imgTag = $("<img>");
 
-                    icon.append(imgTag);
+                    iconFC.append(imgTag);
                     imgTag.attr("id", "wicon" + i);
 
                     imgTag.attr("alt", "Weather icon");
 
-                    var iconUrl = "http://openweathermap.org/img/w/" + data.current[i].weather[0].icon + ".png";
+                    let iconUrl = "https://openweathermap.org/img/w/" + data.daily[i].weather[i].icon + ".png";
+                    console.log("Weather data:", data.daily[i].weather);
+                    
+                    console.log(iconUrl);
                     imgTag.attr("src", iconUrl);
 
-
                     var temp = $("<h6>");
-                    temp.text("Temp: " + data.list[i].temp.day + " °F");
+                    temp.text("Temp: " + data.daily[i].temp.day + " °F");
                     var humidity = $("<h6>");
-                    humidity.text("Humidity: " + data.list[i].humidity + "%");
+                    humidity.text("Humidity: " + data.daily[i].humidity + "%");
                     card.append(cardTitle);
-                    card.append(icon);
+                    card.append(iconFC);
                     card.append(temp);
                     card.append(humidity);
 
                     card.appendTo(dailyCont);
                 }
             })
-
 
         })
         // Get the UV index element
@@ -157,9 +147,5 @@ document.getElementById("cityForm").addEventListener("submit", function (event) 
                 uvIndexElement.style.backgroundColor = ''; // Reset to default background color
             }
         }
-
     }
-     // Update UV index
-     updateUVIndex(data.current.uvi)
-
 })

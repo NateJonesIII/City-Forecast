@@ -62,14 +62,13 @@ aside{
     
 }
 
-
 .weatherCard{
     flex-basis: 20%;
     border: 2px solid black;
     color: white;
     padding: 5px;
     margin: 20px;
-    width:10%;
+    width:15px;
     border-radius: 5px;
     background-color: #2679ff;
 }
