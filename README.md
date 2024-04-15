@@ -13,7 +13,7 @@
 
 ## Preview
 
-![Weather Dashboard Preview](/assets/img/miami.png)
+- <img width="500" alt="Tag" src="https://github.com/NateJonesIII/City-Forecast/blob/master/assets/img/miami.PNG">
 
 ## Link
 
