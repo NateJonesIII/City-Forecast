@@ -1,8 +1,8 @@
-# Weather Dashboard
+# Weather Forcaster
 
 ## Table of Contents
 
-- [preview](#preview)
+- [Preview](#preview)
 - [Link](#link)
 - [Project Description](#project-description)
 - [Technologies Used](#technologies-used)
