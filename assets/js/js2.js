@@ -1,4 +1,4 @@
-var API_KEY = "f69d7e27d4d508660302b27a21ac471b";
+var API_KEY = "806dce37489ecd138c1b2d8eaeaf0b9f";
 var now = moment().format("M/D/YYYY");
 
 var cityNameDisplay = $("#cityName");
