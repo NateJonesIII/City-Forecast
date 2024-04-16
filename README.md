@@ -25,13 +25,13 @@ The Weather Dashboard is a web application that allows users to search for weath
 
 ## Technologies Used
 
-- HTML
-- CSS
-- Bootstrap
-- JavaScript (including jQuery)
-- Fetch API
-- OpenWeatherMap API
-- Moment.js
+- `HTML`
+- `CSS`
+- `Bootstrap`
+- `JavaScript` (including jQuery)
+- `Fetch API`
+- `OpenWeatherMap API`
+- `Moment.js`
 
 ## Methodologies
 
